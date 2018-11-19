@@ -13,8 +13,17 @@
         <link href="~/css/styles.css" rel="stylesheet" />
     </environment>
 </head>
-<body>
-    <div class="container body-content">
+<body>     
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <div class="nav navbar-nav">
+                <li><a asp-controller="Home" asp-action="Index" class="navbar-brand">Bethany's Pie Shop</a></li>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container body-content">
         @RenderBody()
     </div>
 </body>
