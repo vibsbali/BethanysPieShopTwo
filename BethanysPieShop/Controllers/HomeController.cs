@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BethanysPieShop.DataAccess;
+using BethanysPieShop.Models;
 using BethanysPieShop.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,5 +42,17 @@ namespace BethanysPieShop.Controllers
             
             return View(pie);
         }
+
+        public IActionResult Feedback()
+        {
+            return View(new Feedback());
+        }
+
+        [HttpPost]
+        public IActionResult Feedback(Feedback)
+        {
+
+        }
+
     }
 }
