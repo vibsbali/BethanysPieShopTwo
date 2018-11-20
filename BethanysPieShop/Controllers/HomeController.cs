@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using BethanysPieShop.DataAccess;
 using BethanysPieShop.Models;
 using BethanysPieShop.ViewModels;
@@ -39,20 +35,8 @@ namespace BethanysPieShop.Controllers
             var pie = _pieRepository.GetPieById(id);
             if (pie == null)
                 return NotFound();
-            
+
             return View(pie);
         }
-
-        public IActionResult Feedback()
-        {
-            return View(new Feedback());
-        }
-
-        [HttpPost]
-        public IActionResult Feedback(Feedback)
-        {
-
-        }
-
     }
 }

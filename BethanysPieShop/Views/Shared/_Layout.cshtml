@@ -1,5 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
 
+<!DOCTYPE html>
+
+@inject SignInManager<IdentityUser> SignInManager
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -13,17 +16,34 @@
         <link href="~/css/styles.css" rel="stylesheet" />
     </environment>
 </head>
-<body>     
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <li class="nav-item">
+            <a asp-controller="Home" asp-action="Index" class="navbar-link">Bethany's Pie Shop</a>
+        </li>
+        
+        <li class="nav-item"><a asp-controller="Feedback" asp-action="Feedback" class="nav-link">Feedback</a></li>
+
+
+        @if (User.Identity.IsAuthenticated)
+        {
+
+            <form class="form-inline" asp-controller="Account" asp-action="Logout" id="logoutForm">
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+                </li>
+            </form>
+
+        }
+        else
+        {
+            <li class="nav-item"><a asp-controller="Account" asp-action="Register" class="nav-link">Register</a></li>
+            <li class="nav-item"><a asp-controller="Account" asp-action="Login" class="nav-link">Login</a></li>
+        }
+    </nav>
+
+
     <div class="container">
-        <div class="navbar-collapse collapse">
-            <div class="nav navbar-nav">
-                <li><a asp-controller="Home" asp-action="Index" class="navbar-brand">Bethany's Pie Shop</a></li>
-            </div>
-        </div>
-    </div>
-</nav>
-<div class="container body-content">
         @RenderBody()
     </div>
 </body>
